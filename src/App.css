@@ -1,0 +1,23 @@
+/* -- UNSPECIFIED ELEMENTS -- */
+html {
+    background-color: #3f4045;
+    color: #edf6fc;
+}
+
+/* -- CLASS ELEMENTS -- */
+.main {
+    margin-top: 0px;
+    background-color: rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.main > * {
+    margin: inherit;
+    margin-left: 15px;
+}
+
+.main > nav {
+    font-size: 1.25em;
+}
+
+/* -- ID ELEMENTS -- */

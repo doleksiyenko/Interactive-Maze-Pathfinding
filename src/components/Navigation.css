@@ -1,0 +1,30 @@
+/* -- UNSPECIFIED ELEMENTS -- */
+button {
+    margin-left: 15px;
+    border-radius: 3px;
+    background-color: #e8eef2;
+    border-color: #c7d3dd;
+    border-style: solid;
+    font-size: 1.1em;
+}
+
+button:hover {
+    cursor: pointer;
+    background-color: #d0e0eb;
+}
+
+button:active {
+    background-color: #77b6ea;
+    border-color: #77b6ea;
+}
+
+/* -- CLASS ELEMENTS -- */
+.dropdown {
+    width: 15%;
+    font-size: 1.05em;
+}
+
+/* -- ID ELEMENTS -- */
+#speedspan {
+    margin-left: 15px;
+}
