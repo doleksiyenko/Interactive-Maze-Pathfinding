@@ -1,0 +1,38 @@
+/* -- CLASSES -- */
+.board {
+    margin-top: 10px;
+    width: 100%;
+    height: 75%;
+    display: grid;
+    justify-content: center;
+    /* if changing the number of rows, must change the id number in Board.js */
+    grid-template-columns: repeat(20, 2%);
+    grid-template-rows: repeat(20, 5%);
+}
+
+/* CLASSES FOR NODES */
+.status-0 {
+    /* The Node is a passage */
+    background-color: white;
+    border: 0.12em solid #77b6ea;
+    margin: 0px;
+    width: 100%;
+    height: 100%;
+}
+
+.status-0:hover {
+    /* The Node is a passage */
+    background-color: black;
+}
+
+.status-1 {
+    /* The Node is a wall */
+}
+
+.status-2 {
+    /* The node is the start of the maze */
+}
+
+.status-3 {
+    /* The node is the end of the maze */
+}

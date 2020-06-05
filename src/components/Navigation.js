@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./Navigation.css";
+import "./component-css/Navigation.css";
 
 class Navigation extends Component {
     runAlgorithm = (e) => {

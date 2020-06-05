@@ -2,13 +2,13 @@
 html {
     background-color: #3f4045;
     color: #edf6fc;
+    text-align: center;
 }
 
 /* -- CLASS ELEMENTS -- */
 .main {
     margin-top: 0px;
     background-color: rgba(0, 0, 0, 0.2);
-    text-align: center;
 }
 
 .main > * {
@@ -19,5 +19,11 @@ html {
 .main > nav {
     font-size: 1.25em;
 }
+
+.board-container {
+    width: 100vw;
+    height: 100vh;
+}
+/* -- ID ELEMENTS -- */
 
 /* -- ID ELEMENTS -- */

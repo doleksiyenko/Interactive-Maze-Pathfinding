@@ -1,11 +1,7 @@
-import React from 'react'
+import React from "react";
 
 function Key() {
-    return (
-        <div>
-            
-        </div>
-    )
+    return <div>Key:</div>;
 }
 
-export default Key
+export default Key;
