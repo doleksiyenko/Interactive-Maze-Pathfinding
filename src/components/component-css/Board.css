@@ -23,7 +23,7 @@
 .status-0:hover {
     /* The Node is a passage */
     background-color: rgb(245, 8, 8);
-    transition: all 0.15s ease-in;
+    transition: all 0.1s ease-in;
 }
 
 .status-1 {
@@ -38,13 +38,15 @@
 .status-1:hover {
     /* The Node is a passage */
     background-color: rgb(245, 8, 8);
-    transition: all 0.15s ease-in;
+    transition: all 0.1s ease-in;
 }
 
 .status-2 {
     /* The node is the start of the maze */
+    background-color: #009fb7;
 }
 
 .status-3 {
     /* The node is the end of the maze */
+    background-color: #fed766;
 }
