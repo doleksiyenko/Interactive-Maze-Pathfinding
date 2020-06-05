@@ -2,9 +2,18 @@ import React, { Component } from "react";
 import "./component-css/Navigation.css";
 
 class Navigation extends Component {
+    constructor(props) {
+        super(props);
+        this.clearBoard = this.clearBoard.bind(this);
+    }
+
     runAlgorithm = (e) => {
         e.preventDefault();
     };
+
+    clearBoard() {
+        this.props.changeReset();
+    }
 
     render() {
         return (
@@ -22,7 +31,7 @@ class Navigation extends Component {
                     <option value="4times">x4</option>
                 </select>
                 <button onClick={this.runAlgorithm}>Run Algorithm!</button>
-                <button>Clear Board</button>
+                <button onClick={this.clearBoard}>Clear Board</button>
             </nav>
         );
     }
