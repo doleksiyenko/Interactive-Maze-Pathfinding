@@ -20,6 +20,7 @@ class MainWrapper extends Component {
 
         this.state = {
             reset: false,
+            run: true,
         };
         this.changeReset = this.changeReset.bind(this);
     }
@@ -38,6 +39,7 @@ class MainWrapper extends Component {
                     <Navigation
                         className="navigation"
                         changeReset={this.changeReset}
+                        runAlgorithm={this.runAlgorithm}
                     />
                 </div>
                 <Key />

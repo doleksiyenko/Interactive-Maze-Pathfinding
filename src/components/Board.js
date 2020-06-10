@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Node from "./Node";
 import "./component-css/Board.css";
+import { DFS } from "../algorithms/dfs";
 
 class Board extends Component {
     constructor(props) {
@@ -10,6 +11,9 @@ class Board extends Component {
             nodes: [],
             startExists: false,
             endExists: false,
+            startPos: null,
+            endPos: null,
+            elementsPerRow: 20,
         };
 
         this.changeNodeStatus = this.changeNodeStatus.bind(this);
@@ -19,8 +23,8 @@ class Board extends Component {
 
     createEmptyBoard = () => {
         // create an empty board with
-        let numberOfNodes = 400;
-        let elementsPerRow = 20;
+        let elementsPerRow = this.state.elementsPerRow;
+        let numberOfNodes = elementsPerRow ** 2;
         this.setState({
             nodes: [],
         });
@@ -42,27 +46,50 @@ class Board extends Component {
         // when a Node is clicked, it will trigger this method
         // (change its status in this.state.nodes)
         let updatedNodes = [...this.state.nodes];
-        let index = 20 * position[1] + position[0];
+        let index = this.state.elementsPerRow * position[1] + position[0];
         updatedNodes[index][0] = status;
         this.setState({
             nodes: updatedNodes,
         });
     };
 
-    setStart = () => {
+    setStart = (position) => {
         // the node triggers this event when the 's' key is pressed over it
         // prevents another start from being created
         this.setState({
-            endExists: true,
+            startExists: true,
+            startPos: position,
         });
     };
 
-    setEnd = () => {
+    setEnd = (position) => {
         // the node triggers this event when the 'e' key is pressed over it
         // prevents another end from being created
         this.setState({
-            startExists: true,
+            endExists: true,
+            endPos: position,
         });
+    };
+
+    createDFS = () => {
+        let algorithm = new DFS();
+        // run DFS if a starting position and ending position have been set
+        if (this.state.startPos === null || this.state.endPos === null) {
+            console.log("There is no starting or ending position set!");
+        } else {
+            let start = [2, ...this.state.startPos];
+            let end = [3, ...this.state.endPos];
+            console.log("START : " + start);
+            console.log("END: " + end);
+            console.log(
+                algorithm.dfs(
+                    this.state.nodes,
+                    this.state.elementsPerRow,
+                    start,
+                    end
+                )
+            );
+        }
     };
 
     componentDidMount() {
@@ -77,6 +104,8 @@ class Board extends Component {
             this.setState({
                 startExists: false,
                 endExists: false,
+                startPos: null,
+                endPos: null,
             });
             // switch off the reset
             this.props.changeReset();
@@ -99,6 +128,7 @@ class Board extends Component {
                         setEnd={this.setEnd}
                     ></Node>
                 ))}
+                <button onClick={this.createDFS}>Run Algorithm</button>
             </div>
         );
     }

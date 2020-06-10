@@ -29,23 +29,22 @@ class Node extends Component {
         // only create the start/end if the node is not already a wall
         // can only create one start and one ending point on the board
         if (this.state.status === 0) {
-            if (event.keyCode === 69 && !this.props.startExists) {
+            if (event.keyCode === 69 && !this.props.endExists) {
                 // create an end node at this postion if 'e' is pressed
-                // and a start doesn't exist
+                // and a end doesn't exist
                 this.setState({
                     status: 3,
                 });
                 this.props.changeStatus(3, this.props.position);
-                this.props.setEnd();
-            } else if (event.keyCode === 83 && !this.props.endExists) {
+                this.props.setEnd(this.props.position);
+            } else if (event.keyCode === 83 && !this.props.startExists) {
                 // create a start node at this position if 's' is pressed
-                // and an end doesn't exist
-                console.log("s");
+                // and an start doesn't exist
                 this.setState({
                     status: 2,
                 });
                 this.props.changeStatus(2, this.props.position);
-                this.props.setStart();
+                this.props.setStart(this.props.position);
             }
         }
     };
