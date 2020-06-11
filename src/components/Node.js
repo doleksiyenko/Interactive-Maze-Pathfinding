@@ -57,11 +57,14 @@ class Node extends Component {
     };
 
     componentDidUpdate() {
-        if (this.props.reset === true) {
+        if (this.props.reset) {
             this.setState({
                 status: 0,
             });
         }
+        // if (this.props.showVisited) {
+
+        // }
     }
 
     render() {

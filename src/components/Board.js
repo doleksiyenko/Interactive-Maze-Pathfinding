@@ -71,24 +71,29 @@ class Board extends Component {
         });
     };
 
-    createDFS = () => {
-        let algorithm = new DFS();
-        // run DFS if a starting position and ending position have been set
-        if (this.state.startPos === null || this.state.endPos === null) {
-            console.log("There is no starting or ending position set!");
-        } else {
-            let start = [2, ...this.state.startPos];
-            let end = [3, ...this.state.endPos];
-            console.log("START : " + start);
-            console.log("END: " + end);
-            console.log(
-                algorithm.dfs(
+    runAlgorithm = (algorithm) => {
+        if (algorithm === "DFS") {
+            console.log("running DFS");
+            let algorithm = new DFS();
+            // run DFS if a starting position and ending position have been set
+            if (this.state.startPos === null || this.state.endPos === null) {
+                console.log("There is no starting or ending position set!");
+            } else {
+                let visited = algorithm.dfs(
                     this.state.nodes,
                     this.state.elementsPerRow,
-                    start,
-                    end
-                )
-            );
+                    [2, ...this.state.startPos],
+                    [3, ...this.state.endPos]
+                );
+            }
+            this.props.changeRun("DFS");
+        } else if (algorithm === "BFS") {
+            console.log("run BFS");
+
+            this.props.changeRun("BFS");
+        } else if (algorithm === "Dijkstra's") {
+            console.log("run Dijkstra's");
+            this.props.changeRun("Dijkstra's");
         }
     };
 
@@ -99,7 +104,7 @@ class Board extends Component {
 
     componentDidUpdate() {
         // when the clear board button is clicked in the nav, all the settings are reset
-        if (this.props.reset === true) {
+        if (this.props.reset) {
             // clear the start and end nodes
             this.setState({
                 startExists: false,
@@ -107,8 +112,11 @@ class Board extends Component {
                 startPos: null,
                 endPos: null,
             });
-            // switch off the reset
+            //switch off the reset
             this.props.changeReset();
+        }
+        if (this.props.run) {
+            this.runAlgorithm(this.props.algorithm);
         }
     }
 
@@ -128,7 +136,6 @@ class Board extends Component {
                         setEnd={this.setEnd}
                     ></Node>
                 ))}
-                <button onClick={this.createDFS}>Run Algorithm</button>
             </div>
         );
     }

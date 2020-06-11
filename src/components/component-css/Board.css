@@ -50,3 +50,8 @@
     /* The node is the end of the maze */
     background-color: #fed766;
 }
+
+.status-4 {
+    /* This node has been visited in the maze */
+    background-color: indianred;
+}

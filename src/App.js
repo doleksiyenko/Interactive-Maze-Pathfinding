@@ -20,14 +20,24 @@ class MainWrapper extends Component {
 
         this.state = {
             reset: false,
-            run: true,
+            run: false,
+            algorithm: "DFS",
+            path: [],
         };
         this.changeReset = this.changeReset.bind(this);
+        this.runAlgorithm = this.runAlgorithm.bind(this);
     }
 
     changeReset = () => {
         this.setState({
             reset: this.state.reset ? false : true,
+        });
+    };
+
+    runAlgorithm = (inputAlgorithm) => {
+        this.setState({
+            run: this.state.run ? false : true,
+            algorithm: inputAlgorithm,
         });
     };
 
@@ -47,6 +57,9 @@ class MainWrapper extends Component {
                     <Board
                         reset={this.state.reset}
                         changeReset={this.changeReset}
+                        run={this.state.run}
+                        algorithm={this.state.algorithm}
+                        changeRun={this.runAlgorithm}
                     />
                 </div>
             </div>

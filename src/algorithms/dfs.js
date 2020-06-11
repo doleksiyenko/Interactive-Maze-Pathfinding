@@ -33,6 +33,8 @@ export class DFS {
         // find the path using prevNode
         let endVertex = vertex;
         console.log(`This is the ending vertex: ${endVertex}`);
+        visited.shift();
+        return visited;
     };
 
     getUnvisitedNeighbours = (nodeList, mSize, vertex, visited) => {
