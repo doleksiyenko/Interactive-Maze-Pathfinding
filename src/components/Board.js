@@ -14,6 +14,9 @@ class Board extends Component {
             startPos: null,
             endPos: null,
             elementsPerRow: 20,
+            visited: [],
+            path: [],
+            showAlgorithm: false,
         };
 
         this.changeNodeStatus = this.changeNodeStatus.bind(this);
@@ -53,6 +56,12 @@ class Board extends Component {
         });
     };
 
+    changeShowAlgorithm = () => {
+        this.setState({
+            showAlgorithm: false,
+        });
+    };
+
     setStart = (position) => {
         // the node triggers this event when the 's' key is pressed over it
         // prevents another start from being created
@@ -73,18 +82,22 @@ class Board extends Component {
 
     runAlgorithm = (algorithm) => {
         if (algorithm === "DFS") {
-            console.log("running DFS");
             let algorithm = new DFS();
             // run DFS if a starting position and ending position have been set
             if (this.state.startPos === null || this.state.endPos === null) {
                 console.log("There is no starting or ending position set!");
             } else {
-                let visited = algorithm.dfs(
+                // get the visited nodes from the DFS traversal
+                let visitedNodes = algorithm.dfs(
                     this.state.nodes,
                     this.state.elementsPerRow,
                     [2, ...this.state.startPos],
                     [3, ...this.state.endPos]
                 );
+                this.setState({
+                    visited: visitedNodes,
+                    showAlgorithm: true,
+                });
             }
             this.props.changeRun("DFS");
         } else if (algorithm === "BFS") {
@@ -134,6 +147,9 @@ class Board extends Component {
                         endExists={this.state.endExists}
                         setStart={this.setStart}
                         setEnd={this.setEnd}
+                        changeShowAlgorithm={this.changeShowAlgorithm}
+                        visited={this.state.visited}
+                        showAlgorithm={this.state.showAlgorithm}
                     ></Node>
                 ))}
             </div>

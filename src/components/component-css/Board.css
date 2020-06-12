@@ -5,7 +5,7 @@
     height: 75%;
     display: grid;
     justify-content: center;
-    /* if changing the number of rows, must change the id number in Board.js */
+    /* if changing the number of rows, must change the elementsPerRow in Board.js */
     grid-template-columns: repeat(20, 2%);
     grid-template-rows: repeat(20, 5%);
 }
@@ -54,4 +54,8 @@
 .status-4 {
     /* This node has been visited in the maze */
     background-color: indianred;
+    border: 0.12em solid black;
+    margin: 0px;
+    width: 100%;
+    height: 100%;
 }

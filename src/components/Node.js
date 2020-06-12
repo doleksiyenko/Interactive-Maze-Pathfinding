@@ -61,10 +61,26 @@ class Node extends Component {
             this.setState({
                 status: 0,
             });
+            this.props.changeStatus(0, this.state.position);
         }
-        // if (this.props.showVisited) {
 
-        // }
+        if (this.props.showAlgorithm) {
+            // go through each visited node, and update it's state to 4 (visited)
+            this.props.visited.forEach((node) => {
+                // check if the position of the node is the same as any of the elements in the list
+                if (
+                    this.state.position[0] === node[1] &&
+                    this.state.position[1] === node[2]
+                ) {
+                    // if the node is found, update the state of the node to visited (4)
+                    this.setState({
+                        status: 4,
+                    });
+                    this.props.changeStatus(4, this.props.position);
+                }
+            });
+            this.props.changeShowAlgorithm();
+        }
     }
 
     render() {

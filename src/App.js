@@ -22,7 +22,6 @@ class MainWrapper extends Component {
             reset: false,
             run: false,
             algorithm: "DFS",
-            path: [],
         };
         this.changeReset = this.changeReset.bind(this);
         this.runAlgorithm = this.runAlgorithm.bind(this);
