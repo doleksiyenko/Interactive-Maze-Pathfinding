@@ -31,10 +31,24 @@ export class DFS {
             });
         }
         // find the path using prevNode
-        let endVertex = vertex;
+        const endVertex = vertex;
+        const path = this.getPath(endVertex, previousNode);
         console.log(`This is the ending vertex: ${endVertex}`);
+
         visited.shift();
-        return visited;
+        return [visited, path];
+    };
+
+    getPath = (endVertex, previousNode) => {
+        // get the path discovered by the algorithm
+        let path = [];
+        let vertex = endVertex;
+        while (vertex !== null) {
+            path.push(vertex);
+            // change to maze size later on ( 20 )
+            vertex = previousNode[vertex[2] * 20 + vertex[1]];
+        }
+        return path;
     };
 
     getUnvisitedNeighbours = (nodeList, mSize, vertex, visited) => {

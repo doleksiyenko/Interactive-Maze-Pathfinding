@@ -88,14 +88,17 @@ class Board extends Component {
                 console.log("There is no starting or ending position set!");
             } else {
                 // get the visited nodes from the DFS traversal
-                let visitedNodes = algorithm.dfs(
+                let pathVisitedNodes = algorithm.dfs(
                     this.state.nodes,
                     this.state.elementsPerRow,
                     [2, ...this.state.startPos],
                     [3, ...this.state.endPos]
                 );
+                const visitedNodes = pathVisitedNodes[0];
+                const pathNodes = pathVisitedNodes[1];
                 this.setState({
                     visited: visitedNodes,
+                    path: pathNodes,
                     showAlgorithm: true,
                 });
             }
@@ -159,8 +162,9 @@ class Board extends Component {
                         setStart={this.setStart}
                         setEnd={this.setEnd}
                         changeShowAlgorithm={this.changeShowAlgorithm}
-                        visited={this.state.visited}
                         showAlgorithm={this.state.showAlgorithm}
+                        visited={this.state.visited}
+                        path={this.state.path}
                     ></Node>
                 ))}
             </div>

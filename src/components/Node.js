@@ -65,7 +65,6 @@ class Node extends Component {
         }
 
         if (this.props.resetStartEnd) {
-            console.log("this is a start end reset");
             if (
                 this.state.status === 2 ||
                 this.state.status === 3 ||
@@ -78,7 +77,6 @@ class Node extends Component {
                 this.props.changeStatus(0, this.state.position);
             }
         }
-
         if (this.props.showAlgorithm) {
             // go through each visited node, and update it's state to 4 (visited)
             this.props.visited.forEach((node) => {
@@ -90,6 +88,18 @@ class Node extends Component {
                     // if the node is found, update the state of the node to visited (4)
                     this.setState({
                         status: 4,
+                    });
+                    this.props.changeStatus(4, this.props.position);
+                }
+            });
+            this.props.path.forEach((node) => {
+                if (
+                    this.state.position[0] === node[1] &&
+                    this.state.position[1] === node[2]
+                ) {
+                    // if the node is found, update the state of the node to visited (4)
+                    this.setState({
+                        status: 5,
                     });
                     this.props.changeStatus(4, this.props.position);
                 }
