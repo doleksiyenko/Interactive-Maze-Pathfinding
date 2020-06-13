@@ -34,6 +34,9 @@ class Navigation extends Component {
                     Run Algorithm!
                 </button>
                 <button onClick={this.props.changeReset}>Clear Board</button>
+                <button onClick={this.props.changeStartEndReset}>
+                    Clear Start/End
+                </button>
             </nav>
         );
     }

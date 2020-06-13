@@ -128,6 +128,16 @@ class Board extends Component {
             //switch off the reset
             this.props.changeReset();
         }
+        if (this.props.resetStartEnd) {
+            this.setState({
+                startExists: false,
+                endExists: false,
+                startPos: null,
+                endPos: null,
+            });
+            // switch off the reset
+            this.props.changeStartEndReset();
+        }
         if (this.props.run) {
             this.runAlgorithm(this.props.algorithm);
         }
@@ -143,6 +153,7 @@ class Board extends Component {
                         status={element[0]}
                         changeStatus={this.changeNodeStatus}
                         reset={this.props.reset}
+                        resetStartEnd={this.props.resetStartEnd}
                         startExists={this.state.startExists}
                         endExists={this.state.endExists}
                         setStart={this.setStart}

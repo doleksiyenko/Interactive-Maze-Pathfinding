@@ -64,6 +64,21 @@ class Node extends Component {
             this.props.changeStatus(0, this.state.position);
         }
 
+        if (this.props.resetStartEnd) {
+            console.log("this is a start end reset");
+            if (
+                this.state.status === 2 ||
+                this.state.status === 3 ||
+                this.state.status === 4 ||
+                this.state.status === 5
+            ) {
+                this.setState({
+                    status: 0,
+                });
+                this.props.changeStatus(0, this.state.position);
+            }
+        }
+
         if (this.props.showAlgorithm) {
             // go through each visited node, and update it's state to 4 (visited)
             this.props.visited.forEach((node) => {

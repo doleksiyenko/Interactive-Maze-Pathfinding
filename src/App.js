@@ -20,16 +20,24 @@ class MainWrapper extends Component {
 
         this.state = {
             reset: false,
+            resetStartEnd: false,
             run: false,
             algorithm: "DFS",
         };
         this.changeReset = this.changeReset.bind(this);
         this.runAlgorithm = this.runAlgorithm.bind(this);
+        this.changeStartEndReset = this.changeStartEndReset.bind(this);
     }
 
     changeReset = () => {
         this.setState({
             reset: this.state.reset ? false : true,
+        });
+    };
+
+    changeStartEndReset = () => {
+        this.setState({
+            resetStartEnd: this.state.resetStartEnd ? false : true,
         });
     };
 
@@ -48,6 +56,7 @@ class MainWrapper extends Component {
                     <Navigation
                         className="navigation"
                         changeReset={this.changeReset}
+                        changeStartEndReset={this.changeStartEndReset}
                         runAlgorithm={this.runAlgorithm}
                     />
                 </div>
@@ -55,7 +64,9 @@ class MainWrapper extends Component {
                 <div className="board-container">
                     <Board
                         reset={this.state.reset}
+                        resetStartEnd={this.state.resetStartEnd}
                         changeReset={this.changeReset}
+                        changeStartEndReset={this.changeStartEndReset}
                         run={this.state.run}
                         algorithm={this.state.algorithm}
                         changeRun={this.runAlgorithm}

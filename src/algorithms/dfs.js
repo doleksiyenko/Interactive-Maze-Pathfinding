@@ -69,7 +69,7 @@ export class DFS {
                 unvisitedNeighbours
             );
         });
-
+        console.log(unvisitedNeighbours);
         return unvisitedNeighbours;
     };
 
