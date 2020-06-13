@@ -48,6 +48,9 @@ export class DFS {
             // change to maze size later on ( 20 )
             vertex = previousNode[vertex[2] * 20 + vertex[1]];
         }
+        // delete the last and starting node from the list
+        path.shift();
+        path.pop();
         return path;
     };
 

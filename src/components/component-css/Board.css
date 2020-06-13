@@ -53,6 +53,7 @@
 
 .status-4 {
     /* This node has been visited in the maze */
+    transition: ease 2s;
     background-color: indianred;
     border: 0.12em solid black;
     margin: 0px;
@@ -62,6 +63,7 @@
 
 .status-5 {
     /* This node is part of the path discovered by the algorihtm */
+    transition: ease 2s;
     background-color: lawngreen;
     border: 0.12em solid black;
     margin: 0px;

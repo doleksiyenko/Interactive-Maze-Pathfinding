@@ -103,10 +103,6 @@ class Board extends Component {
                 });
             }
             this.props.changeRun("DFS");
-        } else if (algorithm === "BFS") {
-            console.log("run BFS");
-
-            this.props.changeRun("BFS");
         } else if (algorithm === "Dijkstra's") {
             console.log("run Dijkstra's");
             this.props.changeRun("Dijkstra's");

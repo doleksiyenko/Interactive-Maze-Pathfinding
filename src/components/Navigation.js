@@ -17,14 +17,7 @@ class Navigation extends Component {
                     ref={this.selectRef}
                 >
                     <option value="DFS">DFS</option>
-                    <option value="BFS">BFS</option>
                     <option value="Dijkstra's">Dijkstra's</option>
-                </select>
-                <span id="speedspan">Select Speed: </span>
-                <select className="dropdown" id="speed">
-                    <option value="1times">x1</option>
-                    <option value="2times">x2</option>
-                    <option value="4times">x4</option>
                 </select>
                 <button
                     onClick={() =>
