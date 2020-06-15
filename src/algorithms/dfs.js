@@ -1,4 +1,3 @@
-// doesn't get the neighbours properly
 export class DFS {
     dfs = (nodeList, mazeSize, startNode, endNode) => {
         // nodeList is a list of the nodes in the board (in Board.js -> this.state.nodes)

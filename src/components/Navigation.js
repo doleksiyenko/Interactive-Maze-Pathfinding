@@ -17,7 +17,7 @@ class Navigation extends Component {
                     ref={this.selectRef}
                 >
                     <option value="DFS">DFS</option>
-                    <option value="Dijkstra's">Dijkstra's</option>
+                    {/* Option to add later : <option value="Dijkstra's">Dijkstra's</option> */}
                 </select>
                 <button
                     onClick={() =>
