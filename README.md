@@ -1,5 +1,18 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is a simple interactive maze pathfinding project. Currently only depth first search (DFS) has been implemented.
 
+## Instructions
+Click on a tile to switch it between a wall/passage.
+Hover over a tile and type 's' to create a starting node.
+Hover over a tile and type 'e' to create an ending node.
+
+To reset the entire board, click the corresponding button in the navigation.
+To reset the starting/ending nodes, click the corresponding button in the navigation.
+
+## Sample Images
+![Setting ending/starting nodes and maze generation](https://github.com/doleksiyenko/Interactive-Maze-Pathfinding/blob/master/sample-images/userGeneratedMaze.PNG)
+![Running the algorithm](https://github.com/doleksiyenko/Interactive-Maze-Pathfinding/blob/master/sample-images/algorithmRun.PNG)
+
+## REACT
 ## Available Scripts
 
 In the project directory, you can run:
