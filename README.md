@@ -1,4 +1,5 @@
 This project is a simple interactive maze pathfinding project. Currently only depth first search (DFS) has been implemented.
+Try the project here: https://maze-pathfinding-dmos.herokuapp.com/
 
 ## Instructions
 Click on a tile to switch it between a wall/passage.
